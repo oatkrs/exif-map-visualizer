@@ -1,0 +1,3 @@
+npm ci
+npm start
+npm run package:windows

@@ -1,0 +1,33 @@
+@import "../settings-styles";
+
+.setting-title {
+  font-size: $setting-title-font-size;
+}
+
+.setting-container {
+  padding: $setting-container-padding;
+}
+
+.description-row {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.dropdown-and-example-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.date-format-dropdown {
+  width: 150px;
+  margin-right: 30px;
+}
+
+.clock-system-format-dropdown {
+  width: 100px;
+  margin-right: 30px;
+}
+
+.date-time-example > div {
+  padding-bottom: 6px;
+}

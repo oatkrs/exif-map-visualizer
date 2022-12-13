@@ -1,0 +1,1 @@
+{"version":3,"file":"max-file-path-length-on-windows.js","sourceRoot":"","sources":["max-file-path-length-on-windows.ts"],"names":[],"mappings":";;;AAAA,yBAAyB;AAEzB,2EAA2E;AAC3E,kDAAkD;AACrC,QAAA,0BAA0B,GAAG,GAAG,CAAC;AAE9C,SAAgB,0BAA0B,CAAC,QAAgB;IACzD,MAAM,SAAS,GAAG,EAAE,CAAC,QAAQ,EAAE,KAAK,OAAO,CAAC;IAC5C,OAAO,SAAS,IAAI,QAAQ,CAAC,MAAM,GAAG,kCAA0B,CAAC;AACnE,CAAC;AAHD,gEAGC"}

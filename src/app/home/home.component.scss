@@ -1,0 +1,32 @@
+:host {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid: "sidebar-and-map                " minmax(0, 1fr)
+        "thumbnail-generation-status-bar" auto
+        "app-loaded-files-status-bar    " auto
+        /100%;
+
+  .sidebar-and-map-container          { grid-area: sidebar-and-map;                 }
+  app-thumbnail-generation-status-bar { grid-area: thumbnail-generation-status-bar; }
+  app-loaded-files-status-bar         { grid-area: app-loaded-files-status-bar;     }
+}
+
+.sidebar-and-map-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#left-sidebar {
+  height: 100%;
+  overflow-y: auto;
+}
+
+#right-map {
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}

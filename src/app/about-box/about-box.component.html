@@ -1,0 +1,38 @@
+<div class="about-box-container">
+  <img src="favicon.svg" alt="Application Icon" class="app-icon">
+  <div class="app-name">EXIF Map Visualizer</div>
+  <div class="app-version">Version {{ appVersion }}</div>
+  <a class="releases-link" href="" title="Open Downloads and Release Notes" #releasesLink>
+    Downloads and Release Notes
+  </a>
+  <div class="developed-by">
+    <div class="developed-by-message">
+      Developed by Utkarsh Parashar.
+    </div>
+    <img  class="twitter-profile-icon"
+          [src]="twitterLogoDataUrl"
+          alt="Twitter Profile"
+          title="Open Twitter Profile"
+          (click)="handleTwitterProfileIconClicked()">
+    <img class="github-profile-icon"
+         [src]="gitHubLogoDataUrl"
+         alt="GitHub Profile"
+         title="Open GitHub Profile"
+         (click)="handleGitHubProfileIconClicked()"/>
+  </div>
+  <div class="troubleshooting-message">
+    If you encounter issues with this application, please see <a href="" title="Open the troubleshooting page" #troubleshootingPageLink>the troubleshooting page</a>.
+  </div>
+  <div class="icons-grid">
+    <mat-icon class="home-icon"
+              title="Open Home Page"
+              (click)="handleHomeIconClicked()">
+      home
+    </mat-icon>
+    <mat-icon class="code-icon"
+              title="View Source Code in GitHub"
+              (click)="handleSourceCodeIconClicked()">
+      code
+    </mat-icon>
+  </div>
+</div>

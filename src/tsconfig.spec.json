@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+  },
+  "files": [
+    "test.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "../**/*.d.ts",
+    "../src/**/*.spec.ts",
+    "../src-shared/**/*.spec.ts"
+  ]
+}

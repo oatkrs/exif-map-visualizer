@@ -1,0 +1,39 @@
+{
+  "productName": "EXIF Map Visualizer",
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "dist/**/*",
+    "electron-util/**/*",
+    "src-main/**/*",
+    "src-shared/**/*"
+  ],
+  "asar": false,
+  "afterSign": "script/notarize/notarize.js",
+  "win": {
+    "icon": "dist",
+    "target": [
+      "nsis"
+    ]
+  },
+  "nsis": {
+    "oneClick": false
+  },
+  "mac": {
+    "icon": "dist",
+    "target": [
+      "dmg"
+    ],
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false,
+    "entitlements": "script/notarize/entitlements.mac.plist",
+    "entitlementsInherit": "script/notarize/entitlements.mac.plist"
+  },
+  "linux": {
+    "icon": "dist",
+    "target": [
+      "AppImage"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// The gutter provided by Split.js
+.gutter.gutter-horizontal {
+  height: 100%;
+  background-color: #eeeeee;
+  cursor: col-resize;
+
+  // The same animation as the splitter gutter in Photo Data Viewer.
+  transition: background-color 1s ease 0.2s;
+  &:hover {
+    background-color: #aaaaaa;
+  }
+}
+
+.custom-dialog-container {
+  max-width: 95vw !important;   // important! to override the max-width restriction of 80vw given by inline styling
+  max-height: 95vh;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+  position: relative;
+}
+
+// The ripple effect animation on checkboxes is disabled because it happens with right click as well as left click.
+// It's confusing to see the ripple with right click whereas right-clicking does nothing to checkbox state.
+.mat-checkbox-ripple {
+  display: none;
+}
+
+@import "photo-info-viewer";

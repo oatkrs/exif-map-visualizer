@@ -1,0 +1,35 @@
+<div class="summary">
+  <ng-container *ngIf="isThumbnailGenerationDone; else thumbnailGenerationInProgress">
+    <span>Completed generating thumbnails for HEIF files.</span>
+  </ng-container>
+  <ng-template #thumbnailGenerationInProgress>
+    <span>Generating thumbnails for HEIF files...</span>
+  </ng-template>
+</div>
+<div class="progress-bar-with-details"
+     [class]="detailsVisible ? 'expanded-progress-bar-with-details' : 'shrunk-progress-bar-with-details'"
+     [title]="detailsVisible ? 'Hide Details' : 'Show Details'"
+     (click)="toggleDetailsVisibility()">
+  <div class="progress-bar-and-expand-icon">
+    <mat-progress-bar mode="buffer" [value]="progressPercent"></mat-progress-bar>
+    <mat-icon class="expand-icon"
+              [ngClass]="{'expanded-expand-icon': detailsVisible}">
+      expand_more
+    </mat-icon>
+  </div>
+  <div class="details">
+    <div>
+      Generated {{ numberOfGeneratedThumbnails }} out of {{ numberOfThumbnailsGenerationRequired }} thumbnails.
+    </div>
+    <div class="generation-required-files-description">
+      {{ numberOfThumbnailsGenerationRequired }} thumbnails need generation, which is given by "HEIF files ({{ numberOfTotalHeifFiles }} files)
+      − Cache-available files ({{ numberOfThumbnailsUsingCache }} files)".
+    </div>
+  </div>
+</div>
+<span class="close-button"
+      title="Close Thumbnail Generation Status Bar"
+      [ngClass]="{'hidden': !isThumbnailGenerationDone, 'fade-in-close-button': isThumbnailGenerationDone}"
+      (click)="handleCloseButtonClicked()">
+  ×
+</span>

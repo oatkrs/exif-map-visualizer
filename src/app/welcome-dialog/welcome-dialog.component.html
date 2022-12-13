@@ -1,0 +1,34 @@
+<div class="welcome-dialog-container">
+  <img src="favicon.svg" alt="Application Icon" class="app-icon">
+  <div class="welcome-message">Welcome to EXIF Map Visualizer</div>
+  <div class="app-version">Version {{ appVersion }}</div>
+  <div class="developed-by">
+    <div class="developed-by-message">
+      Developed by Team 53 for Sem 3 Project Exhibition.
+    </div>
+    <img  class="twitter-profile-icon"
+          [src]="twitterLogoDataUrl"
+          alt="Twitter Profile"
+          title="Open Twitter Profile"
+          (click)="handleTwitterProfileIconClicked()">
+    <img class="github-profile-icon"
+         [src]="gitHubLogoDataUrl"
+         alt="GitHub Profile"
+         title="Open GitHub Profile"
+         (click)="handleGitHubProfileIconClicked()"/>
+  </div>
+  <div class="troubleshooting-message">
+    If you encounter issues with this application, please see <a href="" title="Open the troubleshooting page" #troubleshootingPageLink>the troubleshooting page</a>.
+  </div>
+  <div class="usage-info-collection-message">
+    To be able to use this application, you must be come to terms with Openmaps API's anonymous data analytics . You agree to it by continuing to use this application.
+  </div>
+  <button
+    mat-stroked-button
+    color="primary"
+    mat-dialog-close
+    class="ok-button"
+    (click)="onOkClicked()">
+    OK
+  </button>
+</div>

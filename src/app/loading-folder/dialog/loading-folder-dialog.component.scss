@@ -1,0 +1,24 @@
+.progress-indicator {
+  height: 100%;
+  display: grid;
+  grid: "progress-bar"         38px
+        "loading-and-progress" 1fr
+        /1fr;
+  justify-content: center;
+  mat-progress-bar      { grid-area: progress-bar;         align-self: end;    }
+  .loading-and-progress { grid-area: loading-and-progress; align-self: center; }
+}
+
+mat-progress-bar {
+  // Override width and left of mat-progress-bar so that it is located at the center with appropriate space from left and right.
+  width: 90%;
+  left: 5%;
+}
+
+.loading-and-progress {
+  text-align: center;
+
+  * + * {
+    margin-top: 10px;
+  }
+}

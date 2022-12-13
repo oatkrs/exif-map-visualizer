@@ -1,0 +1,25 @@
+@import "/src/styles/status-bar";
+
+:host {
+  @include status-bar;
+  padding: 0 10px;
+
+  line-height: $status-bar-min-height;
+}
+
+.message-container {
+  display: grid;
+  column-gap: 10px;
+  grid: "left-message right-message" auto
+        /auto         auto;
+
+  .left-message-container               { grid-area: left-message;  }
+  .right-message-container              { grid-area: right-message;
+                                          justify-self: right;      }
+}
+
+.left-message-container {
+  * + * {
+    margin-left: 8px;
+  }
+}

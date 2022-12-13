@@ -1,0 +1,9 @@
+<div *ngIf="anyFileLoaded" class='message-container'>
+  <div class="left-message-container">
+    <span>Loaded {{ numberOfLoadedFiles }} files.</span>
+    <span>{{ numberOfFilesWithGpsInfo }} files have location data.</span>
+  </div>
+  <div class="right-message-container">
+    <span>{{ getDescriptionByFileType() }}</span>
+  </div>
+</div>

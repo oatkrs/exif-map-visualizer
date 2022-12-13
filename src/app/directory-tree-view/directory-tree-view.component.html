@@ -1,0 +1,69 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <mat-tree-node *matTreeNodeDef="let node"
+                 matTreeNodeToggle
+                 matTreeNodePadding
+                 [matTreeNodePaddingIndent]="indentPerLevel"
+                 (contextmenu)="onContextMenu($event, node)">
+
+    <!-- Adjust space to align with tree expand button (which look like > or v) -->
+    <button mat-icon-button disabled></button>
+
+    <div class="tooltip-container"
+         (mouseenter)="tooltipDisplayLogic.onMouseEnter(node, leafNodeDiv, $event)"
+         (mouseleave)="tooltipDisplayLogic.onMouseLeave(node, leafNodeDiv)"
+         #leafNodeDiv>
+      <mat-checkbox *ngIf="node.isSelectable"
+                    class="tooltip-target"
+                    [checked]="isSelected(node)"
+                    (change)="handleCheckboxChange(node)">
+        {{node.name}}
+      </mat-checkbox>
+      <mat-label *ngIf="!node.isSelectable"
+                 class="tooltip-target non-selectable-node">
+        <div class="disabled-checkbox-alternative"></div>
+        {{node.name}}
+      </mat-label>
+      <app-dir-tree-view-tooltip *ngIf="tooltipDisplayLogic.tooltipEnabled(node)"
+                                 [photoPath]="node.path"
+                                 class="tooltip-content"
+                                 style="display: none">
+      </app-dir-tree-view-tooltip>
+    </div>
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node; when: hasChildren"
+                 matTreeNodePadding
+                 [matTreeNodePaddingIndent]="indentPerLevel"
+                 (contextmenu)="onContextMenu($event, node)">
+    <button mat-icon-button matTreeNodeToggle>
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    <mat-checkbox *ngIf="node.isSelectable"
+                  [checked]="allDescendantsSelected(node)"
+                  [indeterminate]="partOfDescendantsSelected(node)"
+                  (change)="handleCheckboxChange(node)">
+      {{node.name}}
+    </mat-checkbox>
+    <mat-label *ngIf="!node.isSelectable"
+               class="non-selectable-node">
+      <div class="disabled-checkbox-alternative"></div>
+      {{node.name}}
+    </mat-label>
+  </mat-tree-node>
+</mat-tree>
+
+<!--#region Context Menu -->
+<div style="visibility: hidden; position: fixed"
+     [style.left]="contextMenuPosition.x"
+     [style.top]="contextMenuPosition.y"
+     [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+  <ng-template matMenuContent let-data="contextMenuData">
+    <button mat-menu-item (click)="openFile(data)" class="context-menu-button">Open "{{ data.name }}"</button>
+    <button mat-menu-item (click)="openContainingFolder(data)" class="context-menu-button">Open Folder</button>
+  </ng-template>
+</mat-menu>
+<!--#endregion Context Menu -->

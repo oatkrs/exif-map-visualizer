@@ -1,0 +1,34 @@
+<div class="settings-dialog-header">
+  Settings
+</div>
+<mat-nav-list class="settings-tab">
+  <mat-list-item *ngFor="let tabName of tabNames"
+                 (click)="selectTab(tabName)"
+                 [ngClass]="{'selected-tab': isSelectedTab(tabName)}">
+    {{ tabName }}
+  </mat-list-item>
+</mat-nav-list>
+<div class="settings-content">
+  <app-appearance-settings [style.display]="isSelectedTab('Appearance')  ? 'block' : 'none'"></app-appearance-settings>
+  <app-date-time-settings  [style.display]="isSelectedTab('Date & Time') ? 'block' : 'none'"></app-date-time-settings>
+  <app-cache-settings      [style.display]="isSelectedTab('Cache')       ? 'block' : 'none'"></app-cache-settings>
+</div>
+<div class="settings-dialog-footer">
+  <div class="settings-dialog-footer-description"
+       [style.visibility]="isAppRestartRequired ? 'visible' : 'hidden'">
+    This application will restart after saving settings.
+  </div>
+  <div class="settings-dialog-footer-buttons">
+    <button mat-flat-button
+            color="primary"
+            [disabled]="!isSaveButtonEnabled"
+            (click)="saveSettings()">
+      Save
+    </button>
+    <button mat-button
+            (click)="handleCancelClicked()"
+            class="settings-dialog-cancel-button">
+      Cancel
+    </button>
+  </div>
+</div>
